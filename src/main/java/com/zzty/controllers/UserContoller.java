@@ -3,12 +3,15 @@ package com.zzty.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,16 +40,14 @@ public class UserContoller {
 	
 	@RequestMapping(path="", method=RequestMethod.POST)
 	@ResponseStatus(code=HttpStatus.CREATED)
-	public UserDTO createUser(@RequestBody UserDTO user) {
-		
+	public UserDTO createUser(@Valid @RequestBody UserDTO user) {
 		// validate
-		
 		return userService.createUser(user);
 	}
 	
 	@RequestMapping(path="", method=RequestMethod.GET)
-	public List<UserDTO> getUsers() {
-		return new ArrayList<>();
+	public List<UserDTO> getUsers(@RequestParam(required=false) Integer currentPage, @RequestParam(required=false) Integer pageSize) {
+		return userService.getUsers(currentPage, pageSize);
 	}
 	
 	

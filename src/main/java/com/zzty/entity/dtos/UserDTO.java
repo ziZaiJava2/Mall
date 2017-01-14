@@ -1,11 +1,14 @@
 package com.zzty.entity.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 
 public class UserDTO {
 	
+	@Max(100)
 	private Long id;
 	
+	@NotNull
 	private String nickName;
 	
 	private String email;

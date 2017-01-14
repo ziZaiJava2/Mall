@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.zzty.entity.dtos.ErrorDTO;
+import com.zzty.exceptions.LoginFailedException;
 import com.zzty.exceptions.NotFoundExcpetion;
 
 @ControllerAdvice
@@ -19,6 +20,14 @@ public class ExceptionController {
 	public @ResponseBody ErrorDTO notFound() {
 		ErrorDTO dto = new ErrorDTO();
 		dto.setErrorMessage("Resource not found!");
+		return dto;
+	}
+	
+	@ExceptionHandler(LoginFailedException.class)
+	@ResponseStatus(code=HttpStatus.UNAUTHORIZED)
+	public @ResponseBody ErrorDTO authFailed() {
+		ErrorDTO dto = new ErrorDTO();
+		dto.setErrorMessage("login failed");
 		return dto;
 	}
 }
