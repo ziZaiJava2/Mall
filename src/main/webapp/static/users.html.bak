@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+	<link href="lib/bootstrap3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+	<div class="container">
+	<h1>Users</h1>
+	
+	
+	<table class="table table-condensed">
+	 <thead>
+	  <tr> 
+	  	<th>Id</th>
+	   	<th>Nick name</th> 
+	   	<th>Gender</th> 
+	   	<th>Email</th> 
+	  </tr> 
+	 </thead> 
+	 <tbody>
+	 	<tr> 
+	  	<td>Id</td>
+	   	<td>Nick name</td> 
+	   	<td>Gender</td> 
+	   	<td>Email</td> 
+	  	</tr>
+	 </tbody> 
+	</table>
+	</div>
+ 
+
+  <script src="lib/jquery3.1.1/jquery.js"></script>
+  <script src="lib/bootstrap3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/users.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+	  getUsers();
+  });
+  </script>
+</body>
+</html>
